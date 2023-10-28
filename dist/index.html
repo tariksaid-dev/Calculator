@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>TSM - Calculator</title>
+    <script type="module" crossorigin src="/assets/index-52f92bcb.js"></script>
+    <link rel="stylesheet" href="/assets/index-cfd9d576.css">
+  </head>
+  <body
+    class="grid grid-cols[1fr] grid-rows-[4rem,1fr,4rem] h-screen text-[#e5e7eb]"
+  >
+    <header
+      class="bg-[#18212f] py-5 px-20 flex gap-10 items-center justify-center text-4xl"
+    >
+      <h1>Calculadora científica HLanz</h1>
+    </header>
+    <main class="flex items-center justify-center bg-[#111827]">
+      <div
+        class="m-20 bg-[#1f2937] border flex flex-col w-3/4 h-3/4 rounded-2xl border-[#4b5563] shadow-xl"
+      >
+        <div class="mt-6 mx-3 flex flex-col">
+          <i
+            class="fa-solid fa-clock-rotate-left absolute pt-3 pl-3 hover:cursor-pointer"
+            data-modal-target="default-modal"
+            data-modal-toggle="default-modal"
+            id="icon"
+          ></i>
+          <input
+            class="h-12 rounded-md p-4 text-2xl bg-[#111827] border-[#4b5563] border border-b-0 rounded-b-none outline-none text-right text-[#696e76]"
+            type="text"
+            id="ans-screen"
+            readonly
+          />
+
+          <input
+            class="h-16 rounded-md p-4 text-4xl bg-[#111827] border-[#4b5563] border border-t-0 rounded-t-none outline-none text-right"
+            type="text"
+            id="screen"
+            readonly
+          />
+        </div>
+
+        <div
+          class="flex-1 m-3 grid grid-cols-6 grid-rows-5 gap-4 calculator"
+          id="calculator"
+        >
+          <!-- ROW 1 -->
+          <button class="bg-purple-600 hover:bg-purple-700">1</button>
+          <button class="bg-purple-600 hover:bg-purple-700">2</button>
+          <button class="bg-purple-600 hover:bg-purple-700">3</button>
+          <button class="bg-green-600 hover:bg-green-700">=</button>
+          <button class="bg-red-600 hover:bg-red-700">C</button>
+          <button class="bg-red-600 hover:bg-red-700">AC</button>
+
+          <!-- ROW 2 -->
+          <button class="bg-purple-600 hover:bg-purple-700">4</button>
+          <button class="bg-purple-600 hover:bg-purple-700">5</button>
+          <button class="bg-purple-600 hover:bg-purple-700">6</button>
+          <button>-</button>
+          <button>cos</button>
+          <button>ANS</button>
+
+          <!-- ROW 3 -->
+          <button class="bg-purple-600 hover:bg-purple-700">7</button>
+          <button class="bg-purple-600 hover:bg-purple-700">8</button>
+          <button class="bg-purple-600 hover:bg-purple-700">9</button>
+          <button>*</button>
+          <button>sin</button>
+          <button>!</button>
+
+          <!-- ROW 4 -->
+          <button>(</button>
+          <button class="bg-purple-600 hover:bg-purple-700">0</button>
+          <button>)</button>
+          <button>+</button>
+          <button>tan</button>
+          <button>^</button>
+
+          <!-- ROW 5 -->
+          <button>.</button>
+          <button>&#120645;</button>
+          <button>EXP</button>
+          <button>/</button>
+          <button>log</button>
+          <button>√</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- MODAL -->
+    <div
+      id="modal"
+      class="hidden absolute z-10 bg-[#1f2937] border-[#4b5563] border p-2 rounded-md"
+    >
+      <div id="modal-content" class="flex flex-col gap-4"></div>
+    </div>
+
+    <footer class="bg-[#18212f] py-5 px-20 flex items-center justify-center">
+      <a
+        class="flex justify-center gap-3 items-center cursor-pointer"
+        href="https://github.com/tariksaid-dev"
+      >
+        <span>By tariksaid-dev</span><i class="fa-brands fa-github"></i>
+      </a>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/0497757aab.js"
+      crossorigin="anonymous"
+    ></script>
+    
+  </body>
+</html>
