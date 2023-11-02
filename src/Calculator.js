@@ -91,4 +91,8 @@ export class Calculator {
     const lastResult = getFromSession(SESSIONSTORAGE_KEY).slice(-1)[0].result;
     this.screen.value += lastResult;
   }
+
+  lastKeyPressed() {
+    
+  }
 }

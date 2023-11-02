@@ -18,9 +18,6 @@ const allButtons = Array.from(document.getElementsByTagName("button"));
 // OBJECT
 const calc = new Calculator(screen, ansScreen);
 
-// FLAG TO TRACK OPERATOR RESOLVE
-let flag = false;
-
 /**
  * Imperative function that updates the screen based on the button pressed. Modifies the content if the button contains special characters.
  * @param {HTMLElement} btn The button that triggers the onClick action.
@@ -68,7 +65,6 @@ function handleClick(btn) {
 
     // RESOLVE
     case "=":
-      flag = true;
       calc.resolve();
       break;
 
@@ -86,11 +82,11 @@ function handleClick(btn) {
     case "(":
     case ")":
       if (
-        (!isNaN(screen.value.slice(-1)) && flag) ||
+        // lastKeyPressed() -> guarda en session la última tecla pulsada y comprueba si es un igual y hace cosas
+        (!isNaN(screen.value.slice(-1))) ||
         screen.value.slice(-1) === "!"
       ) {
         screen.value = btn.textContent;
-        flag = false;
       } else {
         screen.value += btn.textContent;
       }
