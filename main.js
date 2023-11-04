@@ -5,7 +5,7 @@
 
 import { PI, SESSIONSTORAGE_KEY } from "./src/constants";
 import { Calculator } from "./src/Calculator";
-import { getFromSession } from "./src/utils";
+import { getFromSession, getLastKeyPressed, saveKeyPressed } from "./src/utils";
 
 // DOM ELEMENTS
 const screen = document.getElementById("screen");
@@ -81,21 +81,21 @@ function handleClick(btn) {
     case "0":
     case "(":
     case ")":
-      if (
-        // lastKeyPressed() -> guarda en session la última tecla pulsada y comprueba si es un igual y hace cosas
-        (!isNaN(screen.value.slice(-1))) ||
-        screen.value.slice(-1) === "!"
-      ) {
-        screen.value = btn.textContent;
+      if (getLastKeyPressed("lastKey") === "=") {
+        if (isNaN(btn.textContent)) {
+          screen.value += btn.textContent;
+        } else {
+          screen.value = btn.textContent;
+        }
       } else {
         screen.value += btn.textContent;
       }
       break;
-
     // PRINT
     default:
       screen.value += btn.textContent;
   }
+  saveKeyPressed("lastKey", btn.textContent);
 }
 
 // BUTTONS LISTENERS

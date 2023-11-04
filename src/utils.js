@@ -28,3 +28,23 @@ export function getFromSession(key) {
   }
   return "El historial está vacío";
 }
+
+/**
+ * Saves a key pressed in session storage under the specified key.
+ * @param {string} key - The key under which the key pressed will be stored in session storage.
+ * @param {string} letter - The key pressed to be stored.
+ */
+export function saveKeyPressed(key, letter) {
+  sessionStorage.setItem(key, JSON.stringify(letter));
+}
+
+/**
+ * Retrieves and returns the most recently saved key pressed from session storage under the specified key.
+ * @param {string} key - The key under which the last key pressed is stored in session storage.
+ * @returns {string} - The last saved key pressed or undefined if the key is not found.
+ */
+export function getLastKeyPressed(key) {
+  if (sessionStorage.getItem(key)) {
+    return JSON.parse(sessionStorage.getItem(key));
+  }
+}
